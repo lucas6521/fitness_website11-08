@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>健身訓練百科</title>
+<style>
+:root{--color-bg:#fff;--color-bg-alt:#F4F6F8;--color-text:#1A1D21;--color-text-muted:#5C6670;--color-primary:#14304D;--color-accent:#FF6B2C;--color-success:#2E9D6A;--color-warning:#D9822B;--color-border:#E1E5EA;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--color-bg:#11161C;--color-bg-alt:#1B232C;--color-text:#E8ECF0;--color-text-muted:#9AA6B2;--color-primary:#8DB8E8;--color-border:#2D3945}}
+:root[data-theme="dark"]{--color-bg:#11161C;--color-bg-alt:#1B232C;--color-text:#E8ECF0;--color-text-muted:#9AA6B2;--color-primary:#8DB8E8;--color-border:#2D3945}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--color-bg);color:var(--color-text);font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+a{color:var(--color-primary)}
+h1,h2,h3{color:var(--color-primary);line-height:1.3;font-weight:700}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.page{padding-top:32px;padding-bottom:40px}
+header{border-bottom:1px solid var(--color-border)}
+header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 20px;padding-top:12px;padding-bottom:12px}
+.brand{font-weight:700;font-size:1.15rem;color:var(--color-primary);text-decoration:none}
+nav a{margin-right:16px;text-decoration:none;color:var(--color-text);font-weight:600}
+nav a:last-child{margin-right:0}
+nav a:hover,nav a[aria-current]{color:var(--color-accent)}
+.hero{background:var(--color-bg-alt);padding:48px 0}
+.hero h1{font-size:2rem;margin:0 0 8px}
+.muted{color:var(--color-text-muted)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.card{display:block;background:var(--color-bg-alt);border-radius:12px;padding:18px;text-decoration:none;color:var(--color-text);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+.card:hover{box-shadow:0 4px 12px rgba(0,0,0,.18)}
+.card h3{margin:0 0 6px}
+.card p{margin:0}
+.tag{display:inline-block;font-size:.8rem;padding:2px 10px;border-radius:99px;background:var(--color-bg);border:1px solid var(--color-border);color:var(--color-text-muted);margin:2px 4px 2px 0;text-decoration:none}
+.callout{border-left:4px solid var(--color-success);background:var(--color-bg-alt);padding:12px 16px;border-radius:12px;margin:16px 0}
+.callout--warning{border-color:var(--color-warning)}
+.btn{display:inline-block;padding:10px 20px;border-radius:12px;font-weight:600;text-decoration:none;margin:12px 8px 0 0;border:2px solid var(--color-accent);color:var(--color-text)}
+.btn--primary{background:var(--color-accent);color:#1A1D21}
+.scroll{overflow-x:auto}
+.table-compare{border-collapse:collapse;width:100%;min-width:640px}
+.table-compare th,.table-compare td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--color-border);vertical-align:top}
+.table-compare th{background:var(--color-bg-alt);color:var(--color-primary)}
+.filters{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-bottom:20px}
+.filters input,.filters select{font:inherit;padding:8px 10px;border-radius:12px;border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text)}
+section{margin-top:28px}
+h2{font-size:1.3rem;margin:0 0 8px}
+footer{background:var(--color-bg-alt);padding:24px 0;font-size:.9rem;color:var(--color-text-muted)}
+footer p{margin:4px 0}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="#home">健身訓練百科</a>
+<nav><a href="#types">訓練種類</a><a href="#exercises">動作資料庫</a><a href="#guides">新手指南</a><a href="#about">關於</a></nav></div></header>
+<main id="app"></main>
+<footer><div class="wrap">
+<p>本網站內容僅供一般教育與參考，不構成醫療建議。開始任何訓練前，若你有傷病、慢性疾病或健康疑慮，請先諮詢醫師或合格專業人員。</p>
+<p>資料來源說明：內容為一般性教育整理，未引用特定研究數據；次數、組數、頻率皆為一般參考範圍，請依個人狀況調整。</p>
+<p>最後更新日期：2026-11-08</p></div></footer>
+<script>
+const D='2026-11-08';
+const T=[
+['st','strength-training','肌力訓練','提升身體最大出力的訓練','使用較高重量與較少次數，讓肌肉與神經系統適應更大的負荷。','提升力量|強化骨骼與關節周圍組織|改善日常動作能力','想變強壯、改善體態的人','急性傷病期、尚未經過評估者','槓鈴、啞鈴、深蹲架','每週 2–3 次，先求動作穩定再增加重量。'],
+['hy','hypertrophy','肌肥大訓練','以增加肌肉尺寸為目標的訓練','以中等重量、中等次數並接近力竭，累積足夠訓練量來刺激肌肉生長。','增加肌肉量|改善身體線條|提升肌肉耐力','想增肌、雕塑線條的人','無法安排足夠恢復時間者','啞鈴、機械式器材、彈力帶','每個動作 8–12 下，重視漸進式增加負荷。'],
+['ca','cardio','有氧訓練','提升心肺耐力的持續性運動','以中低強度持續運動，讓心肺與肌肉更有效率地利用氧氣。','提升心肺耐力|促進日常恢復|協助體重管理','想增進體能與健康的人','有心血管疑慮但未經醫師評估者','慢跑鞋、跳繩、健身車','每週 2–4 次，每次 20–40 分鐘。'],
+['hi','hiit','高強度間歇訓練 (HIIT)','高強度與休息交替的訓練','短時間全力運動與短暫休息交替進行，時間效率高。','提升心肺能力|節省訓練時間|增加訓練變化','已有基礎體能的人','新手、心血管或關節問題未評估者','多為徒手或跳繩','新手每週 1–2 次，先從低衝擊版本開始。'],
+['bw','bodyweight','自體重量訓練','不需器材、隨處可練的訓練','以自己的體重作為阻力，在家就能進行。','建立基礎力量|提升身體控制|入門門檻低','新手、居家訓練者','需要極高重量刺激的訓練目標','徒手、瑜珈墊','每週 2–3 次，先把動作做標準再增加次數。'],
+['mo','mobility-stretching','活動度與伸展','改善關節活動範圍的訓練','透過動態與靜態伸展，維持或提升關節與肌肉的可動範圍。','改善動作品質|協助暖身與放鬆|增加身體覺察','久坐者、運動前後','急性拉傷或關節不穩定者','瑜珈墊','每次 5–10 分鐘，以微微拉伸感為準。'],
+['fu','functional-training','功能性訓練','貼近日常動作的訓練','以多關節、多肌群的整合動作，提升日常生活與運動所需的能力。','提升協調與穩定|改善日常動作|整合全身力量','想提升生活與運動表現的人','急性傷病期者','壺鈴、彈力帶、徒手','每週 2–3 次，先學會基本動作模式。']
+].map(a=>({c:a[0],s:a[1],n:a[2],sum:a[3],what:a[4],eff:a[5].split('|'),who:a[6],no:a[7],eq:a[8],tip:a[9]}));
+const TM=Object.fromEntries(T.map(t=>[t.c,t]));
+const E=[
+['barbell-squat','槓鈴深蹲','Barbell Back Squat','st,hy','股四頭肌,臀,核心','槓鈴,深蹲架','中階','槓鈴置於上背，雙腳與肩同寬|吸氣收緊核心，臀部向後坐下，膝蓋對準腳尖|下降至大腿約與地面平行|腳跟踩地站起，頂端臀部發力','下降前吸氣並維持核心張力，站起時吐氣|視線朝前，背部保持中立','膝蓋內夾→刻意將膝蓋朝腳尖方向推|腳跟離地→降低重量並加強腳踝活動度','徒手深蹲','暫停深蹲','重量深蹲請使用安全架，新手建議由合格教練指導。'],
+['conventional-deadlift','傳統硬舉','Conventional Deadlift','st,fu','臀,腿後側,背','槓鈴','中階','站在槓鈴前，雙腳與髖同寬|髖部後推握住槓鈴，背部保持中立|雙腳踩地，把槓鈴「推離地面」直到站直|髖部向後帶回，控制下放','起拉前吸氣收緊核心|槓鈴全程貼近小腿與大腿','圓背→降低重量，先練習髖鉸鏈|用手臂拉→想像用腳推開地板','輕重量羅馬尼亞硬舉','暫停硬舉','重量硬舉對下背壓力大，請從輕重量開始並由合格教練指導。'],
+['dumbbell-bench-press','啞鈴臥推','Dumbbell Bench Press','st,hy','胸,肩,肱三頭肌','啞鈴,臥推椅','中階','躺在椅上，雙手持啞鈴置於胸側|肩胛向後下收緊|向上推至手臂接近伸直|控制速度下放至胸側','推起時吐氣，下放時吸氣|手腕保持在手肘正上方','手肘過度外開→手肘與身體約呈 45–60 度|腰部過度拱起→雙腳踩穩並收緊核心','伏地挺身','上斜啞鈴臥推','請選擇可控制的重量，建議有人在旁保護。'],
+['push-up','伏地挺身','Push-up','bw,hy','胸,肩,肱三頭肌,核心','徒手','入門','雙手略寬於肩，身體呈一直線|收緊核心與臀部|手肘彎曲，胸口接近地面|推起回到起始位置','下降吸氣、推起吐氣|頭、背、臀、腿保持同一直線','塌腰→收緊腹部與臀部|聳肩→讓肩膀遠離耳朵','跪姿或斜面伏地挺身','負重伏地挺身','手腕不適時可改用握把或拳頭支撐。'],
+['bodyweight-squat','徒手深蹲','Bodyweight Squat','bw,hi,fu','股四頭肌,臀','徒手','入門','雙腳與肩同寬，腳尖微外開|臀部向後坐，膝蓋朝腳尖方向|蹲至舒適的最低點|腳跟踩地站起','下蹲吸氣、站起吐氣|胸口挺起，視線朝前','膝蓋內夾→意識地把膝蓋朝外推|重心前傾→想像坐向椅子','扶椅坐站','跳躍深蹲','膝蓋疼痛時請減少深度，並諮詢專業人員。'],
+['plank','棒式','Plank','bw,fu','核心,肩','徒手','入門','前臂撐地，手肘在肩膀正下方|雙腳向後伸直，身體成一直線|收緊腹部與臀部並持續呼吸','維持自然呼吸，不要憋氣|視線朝向地面，頸部放鬆','臀部過高或下沉→讓身體保持一直線|憋氣→縮短時間，專注呼吸','跪姿棒式','單腳抬起棒式','下背不適時請立即停止。'],
+['burpee','波比跳','Burpee','hi,ca,bw','全身','徒手','中階','站姿下蹲，雙手撐地|雙腳向後跳成伏地挺身姿勢|雙腳跳回雙手旁|站起並向上輕跳','以穩定節奏呼吸，不憋氣|落地時膝蓋微彎緩衝','落地過重→放慢速度，輕輕落地|腰部塌陷→收緊核心','不跳版本（改用走步）','加入伏地挺身','強度高，心肺或關節狀況不佳者請先諮詢專業人員。'],
+['jump-rope','跳繩','Jump Rope','ca,hi','小腿,肩','跳繩','入門','手肘靠近身體，以手腕轉繩|以前腳掌輕跳，剛好讓繩通過|保持穩定節奏','自然呼吸，節奏穩定|跳躍高度約 2–3 公分','跳太高→只需跳過繩子的高度|以手臂大幅揮繩→改用手腕轉動','無繩模擬跳','雙飛跳','請選擇有緩衝的地面與合適的鞋子。'],
+['jogging','慢跑','Jogging','ca','股四頭肌,小腿,臀','慢跑鞋','入門','以能說話的輕鬆速度起跑|步幅小、步頻穩定|雙臂自然擺動，身體微前傾|跑後慢走收操','鼻口並用，順暢呼吸|腳掌落在身體正下方附近','一開始跑太快→先以「能說話的速度」進行|步幅過大→縮小步幅','快走與慢跑交替','加入間歇跑','請循序漸進增加時間與距離，注意膝蓋與腳踝不適。'],
+['cat-cow','貓牛式','Cat-Cow','mo','核心,背','瑜珈墊','入門','四足跪姿，手在肩下、膝在髖下|吐氣拱背、低頭（貓）|吸氣胸口前送、抬頭（牛）|隨呼吸慢慢重複','動作配合呼吸|幅度以舒適為主','動作過快→放慢並配合呼吸|過度仰頭→讓頸部保持放鬆','縮小動作幅度','每個姿勢停留 2–3 次呼吸','手腕或膝蓋不適時可墊毛巾。'],
+['hip-flexor-stretch','髖屈肌伸展','Kneeling Hip Flexor Stretch','mo','股四頭肌,臀','瑜珈墊','入門','單膝跪地，另一腳踏在前方|收緊臀部，骨盆微微後傾|身體重心緩慢往前移|停留後換邊','緩慢深呼吸|停留約 20–30 秒（一般參考）','下背過度拱起→收腹並夾臀|用力過猛→以輕微拉伸感為準','縮小前移幅度','同側手臂上舉','感到疼痛（而非拉伸感）請立即停止。'],
+['thoracic-rotation','胸椎旋轉','Thoracic Rotation','mo','背,肩','瑜珈墊','入門','側躺，雙膝彎曲疊在一起|雙手前伸合掌|上方手臂打開朝後轉動，視線跟隨|吐氣回到起始位置','打開時吸氣，回位時吐氣|雙膝保持併攏','膝蓋分開→夾住毛巾或枕頭|手臂硬撐→只在舒適範圍內轉動','縮小旋轉幅度','打開後停留數次呼吸','肩膀不適時請縮小旋轉範圍。']
+].map(a=>({s:a[0],n:a[1],en:a[2],t:a[3].split(','),m:a[4].split(','),q:a[5].split(','),d:a[6],st:a[7].split('|'),br:a[8].split('|'),mi:a[9].split('|'),ez:a[10],hd:a[11],sf:a[12]}));
+const G=[
+['weekly','每週要練幾天才夠？',['沒有標準答案，但新手常見的起點是每週 2–3 天（一般參考）。','可以安排 2 天全身肌力訓練，加上 1–2 天低強度有氧，中間留有休息日讓身體恢復。','比起一次練很多，持續進行更重要。若疲勞或疼痛持續，請降低訓練量或休息。'],'#exercises','瀏覽動作資料庫'],
+['start','該先練肌力還是有氧？',['看你的目標而定：想變強壯、改善體態，可優先安排肌力訓練；想提升耐力與心肺，從有氧開始會比較順手。','多數人最後會兩者並用。新手可先用自體重量與快走建立習慣，再逐步加入器材與強度。','若你有傷病或慢性疾病，開始前請先諮詢醫師或合格專業人員。'],'#types','比較各種訓練']
+].map(a=>({s:a[0],n:a[1],p:a[2],l:a[3],lt:a[4]}));
+const $=s=>document.querySelector(s),app=$('#app');
+const ul=a=>'<ul>'+a.map(x=>'<li>'+x+'</li>').join('')+'</ul>';
+const tags=a=>a.map(x=>'<span class="tag">'+x+'</span>').join('');
+const tCard=t=>`<a class="card" href="#t-${t.s}"><h3>${t.n}</h3><p class="muted">${t.sum}</p></a>`;
+const eCard=x=>`<a class="card" href="#e-${x.s}"><h3>${x.n}</h3><p class="muted">${x.en}</p>${tags([x.d].concat(x.m.slice(0,2)))}</a>`;
+const gCard=g=>`<a class="card" href="#g-${g.s}"><h3>${g.n}</h3></a>`;
+const wrap=h=>`<div class="wrap page">${h}</div>`;
+const sec=(t,b)=>`<section><h2>${t}</h2>${b}</section>`;
+const upd=`<p class="muted">最後更新日期：${D}</p>`;
+function home(){return `<div class="hero"><div class="wrap"><h1>認識訓練，找到適合你的練法</h1><p class="muted">用淺顯的繁體中文，帶你了解訓練種類、查詢動作，並做出適合自己的選擇。</p><a class="btn btn--primary" href="#types">看訓練種類</a><a class="btn" href="#guides">新手指南</a></div></div>`+wrap(sec('訓練種類','<div class="grid">'+T.map(tCard).join('')+'</div>')+sec('熱門動作','<div class="grid">'+E.slice(0,4).map(eCard).join('')+'</div>')+sec('新手指南','<div class="grid">'+G.map(gCard).join('')+'</div>'))}
+function types(){return wrap('<h1>訓練種類總覽</h1><div class="grid">'+T.map(tCard).join('')+'</div>'+sec('比較表','<div class="scroll"><table class="table-compare"><tr><th>種類</th><th>適合誰</th><th>常見器材</th><th>新手建議</th></tr>'+T.map(t=>`<tr><td><a href="#t-${t.s}">${t.n}</a></td><td>${t.who}</td><td>${t.eq}</td><td>${t.tip}</td></tr>`).join('')+'</table></div>'))}
+function typePage(id){const t=T.find(x=>x.s===id);if(!t)return;
+return wrap(`<h1>${t.n}</h1><p class="muted">${t.sum}</p>`+sec('這是什麼','<p>'+t.what+'</p>')+sec('主要效果',ul(t.eff))+sec('適合誰／不適合誰',ul(['適合：'+t.who,'較不適合：'+t.no]))+sec('常見器材','<p>'+t.eq+'</p>')+sec('代表動作','<div class="grid">'+E.filter(x=>x.t.includes(t.c)).map(eCard).join('')+'</div>')+sec('新手入門建議','<p>'+t.tip+'（一般參考範圍，請依個人狀況調整）</p><div class="callout callout--warning">有傷病史、孕期或慢性疾病者，開始前請先諮詢醫師或專業人員。</div>')+sec('延伸閱讀',T.filter(x=>x!==t).map(x=>`<a class="tag" href="#t-${x.s}">${x.n}</a>`).join('')+G.map(g=>`<a class="tag" href="#g-${g.s}">${g.n}</a>`).join(''))+upd)}
+const uniq=a=>[...new Set(a)];
+const opts=(l,a)=>`<option value="">${l}</option>`+a.map(x=>`<option>${x}</option>`).join('');
+function exercises(){return wrap(`<h1>動作資料庫</h1><div class="filters"><input id="q" type="search" placeholder="搜尋動作名稱"><select id="ft"><option value="">所有訓練種類</option>${T.map(t=>`<option value="${t.c}">${t.n}</option>`).join('')}</select><select id="fm">${opts('所有肌群',uniq(E.flatMap(x=>x.m)))}</select><select id="fe">${opts('所有器材',uniq(E.flatMap(x=>x.q)))}</select><select id="fd">${opts('所有難度',['入門','中階','進階'])}</select></div><div class="grid" id="list"></div>`)}
+function filt(){const q=$('#q').value.trim().toLowerCase(),t=$('#ft').value,m=$('#fm').value,e=$('#fe').value,d=$('#fd').value;
+const r=E.filter(x=>(!q||(x.n+x.en).toLowerCase().includes(q))&&(!t||x.t.includes(t))&&(!m||x.m.includes(m))&&(!e||x.q.includes(e))&&(!d||x.d===d));
+$('#list').innerHTML=r.length?r.map(eCard).join(''):'<p>找不到符合條件的動作。</p>'}
+function exPage(id){const x=E.find(e=>e.s===id);if(!x)return;
+return wrap(`<h1>${x.n} <span class="muted">${x.en}</span></h1>`+sec('基本資料',`<p>所屬訓練種類：${x.t.map(c=>`<a class="tag" href="#t-${TM[c].s}">${TM[c].n}</a>`).join('')}</p><p>主要肌群：${tags(x.m)}</p><p>所需器材：${tags(x.q)}</p><p>難度：${tags([x.d])}</p>`)+sec('動作步驟','<ol>'+x.st.map(s=>'<li>'+s+'</li>').join('')+'</ol>')+sec('呼吸與姿勢重點',ul(x.br))+sec('常見錯誤',ul(x.mi.map(m=>{const p=m.split('→');return `<b>${p[0]}</b><br>如何修正：${p[1]}`})))+sec('變化版本',ul(['較簡單：'+x.ez,'較進階：'+x.hd]))+`<div class="callout callout--warning"><b>安全提醒：</b>${x.sf}</div>`+upd)}
+function guides(){return wrap('<h1>新手指南</h1><div class="grid">'+G.map(gCard).join('')+'</div>')}
+function guidePage(id){const g=G.find(x=>x.s===id);if(!g)return;return wrap(`<h1>${g.n}</h1>`+g.p.map(p=>'<p>'+p+'</p>').join('')+`<a class="btn btn--primary" href="${g.l}">${g.lt}</a>`+upd)}
+function about(){return wrap('<h1>關於與免責聲明</h1>'+sec('網站目的','<p>以繁體中文（台灣用語）整理訓練種類與動作資訊，幫助初學者與中階訓練者認識、查詢並選擇適合自己的訓練方式。</p>')+sec('內容原則',ul(['安全與正確優先，寧可保守','不提供醫療診斷或療效宣稱','次數、組數、頻率皆為一般參考範圍']))+'<div class="callout callout--warning">本網站內容僅供一般教育與參考，不構成醫療建議。開始任何訓練前，若你有傷病、慢性疾病或健康疑慮，請先諮詢醫師或合格專業人員。</div>')}
+function route(){const h=location.hash.slice(1)||'home';let v;
+if(h.startsWith('t-'))v=typePage(h.slice(2));else if(h.startsWith('e-'))v=exPage(h.slice(2));else if(h.startsWith('g-'))v=guidePage(h.slice(2));else v=({home,types,exercises,guides,about}[h]||home)();
+app.innerHTML=v||wrap('<h1>找不到頁面</h1><a href="#home">回首頁</a>');
+if(h==='exercises'){document.querySelectorAll('.filters input,.filters select').forEach(e=>e.addEventListener('input',filt));filt()}
+const s=({t:'types',e:'exercises',g:'guides',a:'about'})[h[0]]||'home';
+document.querySelectorAll('nav a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+s));
+scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
